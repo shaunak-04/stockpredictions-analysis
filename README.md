@@ -1,61 +1,51 @@
-# Stock Price Predictor
+# Predicting Stock Prices Using LSTM and Linear Regression Models
 
-Predicting Stock Prices Using LSTM and Linear Regression Models
-Project Summary
-This project aims to develop predictive models for IT companies’ stock prices using historical data. We employed three distinct approaches:
+## Project Summary
 
-LSTM (Long Short-Term Memory): A type of recurrent neural network well-suited for time series forecasting.
-LSTM with Technical Indicators: Using features like RSI (Relative Strength Index), EMA (Exponential Moving Average), SMA (Simple Moving Average), and MACD (Moving Average Convergence Divergence).
-Linear Regression: A traditional statistical method for forecasting.
-The objective is to evaluate and compare the performance of these models in predicting future stock prices.
+This project aims to develop predictive models for IT companies’ stock prices using historical data. We employed three distinct approaches: Long Short-Term Memory (LSTM) networks, a type of recurrent neural network well-suited for time series forecasting, LSTM using technical indicators in place of the traditional Open, High, Low, Volume features, and Linear Regression, a traditional statistical method. The objective is to evaluate and compare the performance of these models in predicting future stock prices, leveraging historical features such as open, high, low prices, volume, and adjusted close prices in two of the models and technical indicators like RSI (Relative Strength Index), EMA (Exponential Moving Average), SMA (Simple Moving Average), and MACD (Moving Average Convergence Divergence).
 
-Table of Contents
-Introduction
-Data Collection and Preparation
-Model Development
-Linear Regression
-Long Short-Term Memory (LSTM)
-Evaluation and Comparison
-Results
-Conclusion
-Dependencies
+## Project Description
+
+### 1. Introduction
+
+Stock price prediction is a challenging but important task in financial analytics. Accurate predictions can assist investors in making informed decisions. In this project, we focus on exploring how different modelling techniques can forecast stock prices.
+
+### 2. Data Collection and Preparation
+
+- **Data Source**: Datasets were downloaded using the `yfinance` module in Python.
+- **Preprocessing**: The dataset is cleaned and organized to include relevant features for the prediction tasks. For Linear Regression, data is prepared by creating lagged target variables. For LSTM, data is scaled and shaped appropriately for time series forecasting.
+
+### 3. Model Development
+
+- **Linear Regression**:
+  - **Feature Engineering**: Used features like 'Open', 'High', 'Low', and 'Volume' to predict the next day’s 'Adj Close' price.
+  - **Training and Testing**: The data is split into training and testing sets, with the model trained on historical data and evaluated on unseen test data.
+
+- **Long Short-Term Memory (LSTM)**:
+  - **Data Preparation**: Data is scaled and reshaped into sequences to fit the LSTM model’s requirements.
+  - **More features**: Additional technical indicators like RSI, MACD, SMA, and EMA are used for one of the models.
+  - **Model Training**: An LSTM model is built and trained using the prepared sequences, optimizing it for accurate forecasting.
+
+### 4. Evaluation and Comparison
+
+- **Performance Metrics**: Both models are evaluated using Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) to assess their prediction accuracy.
+- **Visualization**: Graphs comparing actual stock prices with predictions from both models are plotted to visualize performance.
+
+### 5. Results
+
+- **Linear Regression**: The Linear Regression model provides a baseline for comparison with LSTM. Its performance is evaluated using MAE and RMSE metrics.
+- **LSTM Model**: The LSTM model is expected to capture complex patterns in the time series data and potentially outperform the Linear Regression model.
+
+### 6. Conclusion
+
+This project demonstrates how different forecasting techniques can be applied to stock price prediction. The comparison between Linear Regression and LSTM models provides insights into their effectiveness and suitability for financial time series forecasting.
 
 
-1. Introduction
-Stock price prediction is a challenging but important task in financial analytics. Accurate predictions can help investors make informed decisions. This project explores the effectiveness of different modeling techniques for forecasting stock prices.
+## Dependencies
 
-2. Data Collection and Preparation
-Data Source: Stock price data was collected using the yfinance module in Python.
-Preprocessing:
-Linear Regression: Lagged target variables were created for prediction.
-LSTM: Data was scaled and reshaped for time series forecasting.
-
-3. Model Development
-a)Linear Regression
-Feature Engineering: Features such as 'Open', 'High', 'Low', and 'Volume' were used to predict the next day's 'Adjusted Close' price.
-Training and Testing: Data was split into training and testing sets. The model was trained on historical data and evaluated on unseen test data.
-b)Long Short-Term Memory (LSTM)
-Data Preparation: Data was scaled and reshaped into sequences suitable for LSTM models.
-Feature Selection: Additional technical indicators (RSI, MACD, SMA, EMA) were included in one of the LSTM models for richer feature representation.
-Model Training: LSTM models were trained and optimized for accurate forecasting.
-
-4. Evaluation and Comparison
-Metrics: Models were evaluated using:
-Mean Absolute Error (MAE)
-Root Mean Squared Error (RMSE)
-Visualization: Actual stock prices were compared with model predictions through visualizations.
-
-5. Results
-Linear Regression: Served as a baseline model, evaluated using MAE and RMSE.
-LSTM Model: Expected to capture complex patterns in time series data, potentially outperforming Linear Regression.
-
-6. Conclusion
-This project demonstrates the application of different forecasting techniques for stock price prediction. The comparison highlights the strengths and weaknesses of Linear Regression and LSTM models, providing insights into their suitability for financial time series forecasting.
-
-7. Dependencies
-numpy
-pandas
-scikit-learn
-tensorflow
-yfinance
-matplotlib
+- numpy
+- pandas
+- scikit-learn
+- tensorflow
+- yfinance
+- matplotlib
